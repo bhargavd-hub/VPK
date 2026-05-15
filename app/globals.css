@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-brand-offBlack;
+    font-family: var(--font-sans);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Prose / Markdown styles */
+.prose h1, .prose h2, .prose h3 {
+  @apply font-bold text-brand-offBlack;
+}
+.prose p {
+  @apply mb-3 text-sm leading-relaxed;
+}
+.prose ul {
+  @apply list-disc pl-5 mb-3 text-sm space-y-1;
+}
+.prose ol {
+  @apply list-decimal pl-5 mb-3 text-sm space-y-1;
+}
+.prose a {
+  @apply text-brand-orange underline;
+}
+.prose strong {
+  @apply font-bold;
+}
