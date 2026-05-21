@@ -278,6 +278,8 @@ export function Navbar() {
                               href={
                                 activeCategory === 'Kitchen & Dining'
                                   ? '/kitchen-ranges'
+                                  : activeCategory === 'Tools & Equipment'
+                                  ? `/products?category=Tools+%26+Equipment`
                                   : `/products?category=${encodeURIComponent(activeCategory)}`
                               }
                               onClick={() => setActiveCategory(null)}
