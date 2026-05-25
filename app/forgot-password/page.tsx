@@ -1,64 +1,72 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { Mail, CheckCircle } from 'lucide-react'
-import { Button, Input } from '@/components/ui/Forms'
+import { Mail } from 'lucide-react'
 
 export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState('')
-  const [sent, setSent] = useState(false)
+  const [email,     setEmail]     = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) setSent(true)
-  }
-
-  if (sent) {
-    return (
-      <div className="w-full min-h-[70vh] flex items-center justify-center px-4">
-        <div className="w-full max-w-md text-center">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle size={40} className="text-green-600" />
-          </div>
-          <h1 className="text-2xl font-bold text-brand-offBlack mb-3">Check your email</h1>
-          <p className="text-neutral-dark mb-2">We've sent a password reset link to</p>
-          <p className="font-bold text-brand-orange mb-8">{email}</p>
-          <p className="text-sm text-neutral mb-6">Didn't receive it? Check your spam folder or try again.</p>
-          <div className="flex gap-4 justify-center">
-            <Button onClick={() => setSent(false)} variant="secondary" size="sm">Try Again</Button>
-            <Link href="/login"><Button size="sm">Back to Sign In</Button></Link>
-          </div>
-        </div>
-      </div>
-    )
+    if (email) setSubmitted(true)
   }
 
   return (
-    <div className="w-full min-h-[70vh] flex items-center justify-center px-4 py-16">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-full bg-brand-orange/10 flex items-center justify-center mx-auto mb-4">
-            <Mail size={28} className="text-brand-orange" />
-          </div>
-          <h1 className="text-3xl font-bold text-brand-offBlack mb-2">Forgot Password?</h1>
-          <p className="text-neutral-dark">Enter your email and we&apos;ll send you a reset link.</p>
-        </div>
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <Input
-            label="Email Address"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="you@example.com"
-            required
-          />
-          <Button type="submit" className="w-full">Send Reset Link</Button>
-        </form>
-        <p className="text-center text-sm text-neutral-dark mt-6">
-          Remember your password?{' '}
-          <Link href="/login" className="text-brand-orange font-bold hover:underline">Sign In</Link>
+    <div className="min-h-[75vh] flex items-center justify-center bg-[#F7F5F2] px-4 py-12">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-[#E5E2DE] p-8 md:p-10">
+
+        <h1 className="text-3xl font-bold text-[#302D2A] mb-2">Forgot Password</h1>
+        <p className="text-[#9C9790] mb-8">
+          Enter your registered email address to receive a reset link.
         </p>
+
+        {submitted ? (
+          /* ── Success state ── */
+          <div className="bg-green-50 border border-green-200 rounded-lg p-5 animate-fade-in">
+            <p className="font-bold text-green-700 mb-1">Check your email</p>
+            <p className="text-sm text-green-600">
+              You will receive a forgot password link on registered email.
+            </p>
+            <button
+              onClick={() => setSubmitted(false)}
+              className="mt-6 w-full py-4 bg-[#C25E28] hover:bg-[#a64e21] text-white font-bold rounded-full transition-colors uppercase tracking-wide text-sm shadow-lg shadow-[#C25E28]/20"
+            >
+              Back to Forgot Password
+            </button>
+          </div>
+        ) : (
+          /* ── Form ── */
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="flex flex-col gap-1">
+              <label className="text-sm font-bold text-[#302D2A]">
+                Registered Email Address
+              </label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className="border border-[#D4D0CB] p-3 text-sm focus:outline-none focus:border-[#C25E28] transition-colors bg-white text-[#302D2A] rounded"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 bg-[#C25E28] hover:bg-[#a64e21] text-white font-bold rounded-full transition-colors uppercase tracking-wide text-sm shadow-lg shadow-[#C25E28]/20"
+            >
+              Send
+            </button>
+
+            <div className="text-center pt-2">
+              <Link href="/login" className="text-sm font-bold text-[#C25E28] hover:underline">
+                Back to Login
+              </Link>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   )

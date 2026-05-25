@@ -341,3 +341,61 @@ export const KITCHEN_RANGES = [
     badge: 'NEW',
   },
 ]
+
+export const SKILL_GROUPS = [
+  {
+    title: 'Cleaning', icon: 'Brush',
+    skills: [
+      { id: 'cleaning', name: 'Cleaning', description: 'Includes cleaning of living spaces or offices or deep cleans of specific spaces.', inDemand: true,
+        expectations: ['Attention to detail and thoroughness.','Experience with various cleaning products and techniques.','Ability to handle deep cleaning tasks as requested.','Respect for client property and privacy.','Reliability and punctuality.'],
+        tools: ['Vacuum cleaner','Mop and bucket','Cleaning cloths','Multi-surface cleaner','Disinfectant'],
+        additionalExpectations: ['Experience with commercial cleaning.','Specialized deep cleaning skills.'],
+        additionalTools: ['Steam cleaner','Floor buffer'] }
+    ]
+  },
+  {
+    title: 'Home Improvements', icon: 'Hammer',
+    skills: [
+      { id: 'minor-repairs', name: 'Minor Home Repairs', description: 'Repair and maintenance work around the home or office.', inDemand: true,
+        expectations: ['Versatility in handling small repair tasks.','Knowledge of basic home maintenance.','Ability to troubleshoot common household issues.','Efficient work pace and clean finish.','Good communication with clients about repair needs.'],
+        tools: ['Screwdriver set','Hammer','Pliers','Adjustable wrench','Tape measure','Utility knife'],
+        additionalExpectations: ['Experience with drywall patching.','Basic plumbing repair skills.'],
+        additionalTools: ['Power drill','Caulking gun'] },
+      { id: 'door-repair', name: 'Door, Cabinet, & Furniture Repair', description: 'Fix or replace doors, doorknobs, locks, hinges, cabinets, and furniture.', inDemand: false,
+        expectations: ['Skill in adjusting and repairing hinges and locks.','Experience with furniture restoration or repair.'],
+        tools: ['Chisels','Screwdrivers','Level','Wood glue','Clamps'],
+        additionalExpectations: ['Experience with custom cabinetry.'],
+        additionalTools: ['Power planer','Router'] },
+      { id: 'electrical-help', name: 'Electrical Help', description: 'Help with basic electrical tasks like changing light fixtures or outlet plates.', inDemand: false,
+        expectations: ['Strict adherence to safety protocols.','Knowledge of local electrical codes for minor tasks.'],
+        tools: ['Voltage tester','Insulated screwdrivers','Wire strippers','Electrical tape'],
+        additionalExpectations: ['Experience with smart home installations.'],
+        additionalTools: ['Multimeter','Circuit tracer'] }
+    ]
+  },
+  {
+    title: 'Assembly', icon: 'Box',
+    skills: [
+      { id: 'furniture-assembly', name: 'Furniture Assembly', description: 'Assemble desks, chairs, dressers, beds, and other furniture items.', inDemand: true,
+        expectations: ['Excellent ability to follow complex assembly instructions.','Experience with various furniture brands (IKEA, etc.).'],
+        tools: ['Power screwdriver','Allen key set','Rubber mallet','Level','Measuring tape'],
+        additionalExpectations: ['Experience with wall-anchoring heavy units.'],
+        additionalTools: ['Impact driver','Stud finder'] }
+    ]
+  },
+  {
+    title: 'Moving & Mounting', icon: 'Truck',
+    skills: [
+      { id: 'mounting', name: 'General Mounting', description: 'Securely mount TVs, art, mirrors, and shelving to walls.', inDemand: true,
+        expectations: ['Experience mounting a variety of items.','Knowledge of different wall types and appropriate mounting hardware.'],
+        tools: ['Power drill','Level','Stud finder','Screwdrivers','Wall anchors','Tape measure'],
+        additionalExpectations: ['Experience with heavy items like large mirrors.'],
+        additionalTools: ['Hammer drill'] },
+      { id: 'moving-help', name: 'Moving Help', description: 'Assist with loading, unloading, and transporting household items.', inDemand: false,
+        expectations: ['Physical strength and stamina for lifting heavy items.','Experience with safe furniture moving techniques.'],
+        tools: ['Dolly/Hand truck','Moving blankets','Furniture straps','Packing tape'],
+        additionalExpectations: ['Piano moving experience.'],
+        additionalTools: ['Furniture sliders'] }
+    ]
+  }
+]
